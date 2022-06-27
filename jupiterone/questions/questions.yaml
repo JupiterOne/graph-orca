@@ -1,7 +1,7 @@
 ---
-sourceId: managed:template
+sourceId: managed:orca
 integrationDefinitionId: '${integration_definition_id}'
-questions: []
+questions: 
   # - id: integration-question-template-replace-me
   #   title: What kinds of questions will this integration support?
   #   description:
@@ -13,3 +13,15 @@ questions: []
   #         find * with _integrationDefinitionId = '${integration_definition_id}'
   #   tags:
   #     - template
+
+
+- id: managed-question-orca-account-with-no-multi-factor-authentication
+  title: Which Orca accounts do not have MFA enabled?
+  description: Returns a list of Orca accounts that do not have MFA enabled.
+  queries:
+  - name: Account Multi-factor Authentication
+    resultsAre: BAD
+    query: |
+      FIND orca_account mfaEnabled != true
+  tags:
+  - orca
