@@ -22,6 +22,6 @@ questions:
   - name: Account Multi-factor Authentication
     resultsAre: BAD
     query: |
-      FIND orca_account mfaEnabled != true
+      FIND orca_account with mfaEnabled != true
   tags:
   - orca
