@@ -2,20 +2,8 @@
 sourceId: managed:orca
 integrationDefinitionId: '${integration_definition_id}'
 questions: 
-  # - id: integration-question-template-replace-me
-  #   title: What kinds of questions will this integration support?
-  #   description:
-  #     TODO Every integration should contribute questions! Please be carefule
-  #     to replace this before deploying the integration to JupiterOne.
-  #   queries:
-  #     - name: good
-  #       query: |
-  #         find * with _integrationDefinitionId = '${integration_definition_id}'
-  #   tags:
-  #     - template
-
-
-- id: managed-question-orca-account-with-no-multi-factor-authentication
+kno-235-orca_accountMFA_disabled
+  - id: managed-question-orca-account-with-no-multi-factor-authentication
   title: Which Orca accounts do not have MFA enabled?
   description: Returns a list of Orca accounts that do not have MFA enabled.
   queries:
@@ -25,3 +13,4 @@ questions:
       FIND orca_account with mfaEnabled != true
   tags:
   - orca
+
