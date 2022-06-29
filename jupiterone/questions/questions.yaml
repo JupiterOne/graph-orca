@@ -2,7 +2,18 @@
 sourceId: managed:orca
 integrationDefinitionId: '${integration_definition_id}'
 questions: 
-kno-235-orca_accountMFA_disabled
+  - id: managed-question-orca-open-cve-findings
+    title: Which Orca CVE findings are open?
+    description: Returns all Orca open findings CVEs.
+    queries:
+      - query: |
+          FIND orca_finding WITH open = true AS f
+          RETURN
+            f.category AS 'Finding Category', 
+            count(f) AS 'Findings'
+    tags:
+      - orca
+      - vul 
   - id: managed-question-orca-account-with-no-multi-factor-authentication
   title: Which Orca accounts do not have MFA enabled?
   description: Returns a list of Orca accounts that do not have MFA enabled.
@@ -13,4 +24,3 @@ kno-235-orca_accountMFA_disabled
       FIND orca_account with mfaEnabled != true
   tags:
   - orca
-
