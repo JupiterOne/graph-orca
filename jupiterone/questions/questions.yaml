@@ -14,3 +14,13 @@ questions:
     tags:
       - orca
       - vul
+  - id: managed-question-orca-account-with-no-multi-factor-authentication
+    title: Which Orca accounts do not have MFA enabled?
+    description: Returns a list of Orca accounts that do not have MFA enabled.
+    queries:
+    - name: Account Multi-factor Authentication
+      resultsAre: BAD
+      query: |
+        FIND orca_account with mfaEnabled != true
+    tags:
+      - orca
